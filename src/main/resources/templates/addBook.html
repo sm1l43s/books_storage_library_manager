@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Добавление книг</title>
+    <th:block th:insert="parts/includesFiles :: includesFiles"></th:block>
+</head>
+<body>
+<div class="container">
+    <div class="row h-100">
+        <div class="col-md-8 offset-md-2 shadow p-3">
+            <h3>Форма добавления</h3>
+            <form action="/addBook" method="post">
+                <div class="form-group">
+                    <label for="numberBook">Индивидуальный номер книги</label>
+                    <input type="number" required class="form-control" name="numberBook" id="numberBook" placeholder="номер книги">
+                </div>
+                <div class="form-group">
+                    <label for="author">Автор книги</label>
+                    <input type="text" class="form-control" id="author" name="author" placeholder="автор книги">
+                </div>
+                <div class="form-group">
+                    <label for="title">Название книги</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="название книги">
+                </div>
+                <div class="form-group">
+                    <label for="countBook">Количество книг</label>
+                    <input type="number" class="form-control" id="countBook" name="countBook" placeholder="кол-во книг">
+                </div>
+                <input type="submit" value="Добавить" class="btn btn-success p-2">
+                <a href="/bookCatalog" class="btn btn-info p-2">Вернуться назад</a>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

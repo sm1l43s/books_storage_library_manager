@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Изменение данных книги</title>
+    <th:block th:insert="parts/includesFiles :: includesFiles"></th:block>
+</head>
+<body>
+<div class="container">
+    <div class="row h-100">
+        <div class="col-md-8 offset-md-2 shadow p-3">
+            <h3>Форма изменения</h3>
+            <form action="/editBook" method="post">
+                <input type="number" name="id" th:value="${book.getId()}" hidden>
+                <div class="form-group">
+                    <label for="numberBook">Индивидуальный номер книги</label>
+                    <input type="number" th:value="${book.getNumberBook()}" required class="form-control" name="numberBook" id="numberBook" placeholder="номер книги">
+                </div>
+                <div class="form-group">
+                    <label for="author">Автор книги</label>
+                    <input type="text" th:value="${book.getAuthor()}" class="form-control" id="author" name="author" placeholder="автор книги">
+                </div>
+                <div class="form-group">
+                    <label for="title">Название книги</label>
+                    <input type="text" class="form-control" th:value="${book.getTitle()}" id="title" name="title" placeholder="название книги">
+                </div>
+                <div class="form-group">
+                    <label for="countBook">Количество книг</label>
+                    <input type="number" class="form-control" th:value="${book.getTotalCount()}" id="countBook" name="countBook" placeholder="кол-во книг">
+                </div>
+                <input type="submit" value="Сохранить изменения" class="btn btn-success p-2">
+                <a href="/bookCatalog" class="btn btn-info p-2">Вернуться назад</a>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

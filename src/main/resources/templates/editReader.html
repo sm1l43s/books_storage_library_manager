@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Изменение данных читателя</title>
+    <th:block th:insert="parts/includesFiles :: includesFiles"></th:block>
+</head>
+<body class="login-page">
+<div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+    <div class="card shadow p-3 mb-5 bg-light rounded col-3">
+        <div class="card-body">
+            <form method="post" action="/editReader">
+                <h1 class="h3 mb-3 font-weight-normal text-center">Информация о читателе</h1>
+                <input type="text" th:value="${reader.getId()}" name="id" hidden>
+                <div class="form-group">
+                    <label for="lastName">Фамилия</label>
+                    <input type="text" name="lastName" th:value="${reader.getLastName()}"  class="form-control" id="lastName" placeholder="Фамилия" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName">Имя</label>
+                    <input type="text" name="firstName" th:value="${reader.getFirstName()}" class="form-control" id="firstName" placeholder="Имя" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="patronym">Отчество</label>
+                    <input type="text" name="patronym" class="form-control" th:value="${reader.getPatronym()}" id="patronym" placeholder="Отчество" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="numberPhone">Номер телефона</label>
+                    <input type="text" name="numberPhone" class="form-control" th:value="${reader.getNumberPhone()}" id="numberPhone" placeholder="Номер телефона" required>
+                </div>
+
+                <input type="submit" value="Сохранить изменения" class="btn btn-success p-2">
+                <a href="/readerList" class="btn btn-info p-2">Вернуться назад</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

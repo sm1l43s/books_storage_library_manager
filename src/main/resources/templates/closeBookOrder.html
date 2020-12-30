@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Прием книг</title>
+    <th:block th:insert="parts/includesFiles :: includesFiles"></th:block>
+</head>
+<body>
+<th:block th:insert="parts/navbar :: navbar"></th:block>
+<div class="container-fluid">
+    <div class="row">
+
+        <th:block th:insert="parts/sidebar :: sidebar"></th:block>
+
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+            <div class="col-md-8 offset-md-2 shadow p-3 mt-5">
+                <form action="/closeBookOrder" method="post">
+                    <input type="text" th:value="${worker.getId()}" hidden name="idWorker">
+                    <div class="form-group">
+                        <label for="numberBook">Индивидуальный номер книги</label>
+                        <input type="number" required class="form-control" name="numberBook" id="numberBook" placeholder="номер книги">
+                    </div>
+                    <div class="form-group">
+                        <label for="reader">Номер телефона читателя</label>
+                        <input type="text" class="form-control" id="reader" name="numberPhone" placeholder="Номер телефона читателя">
+                    </div>
+                    <input type="submit" value="Продолжить" class="btn btn-success p-2">
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Главная</title>
+    <th:block th:insert="parts/includesFiles :: includesFiles"></th:block>
+</head>
+<body>
+<th:block th:insert="parts/navbar :: navbar"></th:block>
+<div class="container-fluid">
+    <div class="row">
+
+        <th:block th:insert="parts/sidebar :: sidebar"></th:block>
+
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

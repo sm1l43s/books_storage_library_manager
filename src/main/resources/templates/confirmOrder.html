@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Подтверждение заказа</title>
+    <th:block th:insert="parts/includesFiles :: includesFiles"></th:block>
+</head>
+<body class="login-page">
+<div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+    <div class="card shadow p-3 mb-5 bg-light rounded col-3">
+        <div class="card-body">
+            <form method="post" action="/confirm">
+                <h1 class="h3 mb-3 font-weight-normal text-center">Подтверждение</h1>
+                <div class="form-group">
+                    <label for="worker">Работник</label>
+                    <input type="text" class="form-control" id="worker" th:value="${worker.getLastName()} + ' ' + ${worker.getFirstName()}" disabled>
+                    <input type="text" th:value="${worker.getId()}" name="idWorker" hidden>
+                </div>
+
+                <div class="form-group">
+                    <label for="reader">Читатель</label>
+                    <input type="text" class="form-control" id="reader" th:value="${reader.getLastName()} + ' ' + ${reader.getFirstName()}" disabled>
+                    <input type="text" th:value="${reader.getId()}" name="idReader" hidden>
+                </div>
+
+                <div class="form-group">
+                    <label for="book">Книга</label>
+                    <input type="text" class="form-control" id="book" th:value="${book.getAuthor()} + ' ' + ${book.getTitle()}" disabled>
+                    <input type="text" name="idBook" th:value="${book.getId()}" hidden>
+                </div>
+
+                <div class="form-group">
+                    <label for="countDay">Срок выдачи</label>
+                    <input type="text" class="form-control" id="countDay" th:value="${countDay}" disabled>
+                    <input type="text" th:value="${countDay}" name="countDay" hidden>
+                </div>
+
+                <button class="btn btn-sm btn-primary btn-block" type="submit">Оформить</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

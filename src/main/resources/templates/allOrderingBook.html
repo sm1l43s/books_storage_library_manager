@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Весь список выданных книг</title>
+    <th:block th:insert="parts/includesFiles :: includesFiles"></th:block>
+</head>
+<body>
+<th:block th:insert="parts/navbar :: navbar"></th:block>
+<div class="container-fluid">
+    <div class="row">
+
+        <th:block th:insert="parts/sidebar :: sidebar"></th:block>
+
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+
+            <h2>Весь список выданных книг</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th>№ п/п</th>
+                        <th>Читатель</th>
+                        <th>Номер телефона читателя</th>
+                        <th>Книга</th>
+                        <th>Дата выдачи</th>
+                        <th>Срок выдачи</th>
+                        <th>Выдавший работник</th>
+                        <th>Статус</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="order, state : ${ordering}">
+                        <td th:text="${state.count}"></td>
+                        <td>
+                            <a th:href="'/readerList/moreInfo/' + ${order.getReader().getId()}" th:text="${order.getReader().getLastName()} + ' ' + ${order.getReader().getFirstName()} + ' ' + ${order.getReader().getPatronym()}"></a>
+                        </td>
+                        <td th:text="${order.getReader().getNumberPhone()}"></td>
+                        <td th:text="${order.getBook().getAuthor()} + ' ' + ${order.getBook().getTitle()}"></td>
+                        <td th:text="${order.getDateOrder()}"></td>
+                        <td th:text="${order.getCountDayOrder()}"></td>
+                        <td th:text="${order.getWorker().getLastName()} + ' ' + ${order.getWorker().getFirstName()} + ' ' + ${order.getWorker().getPatronym()}"></td>
+                        <td th:text="${order.getStatus()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

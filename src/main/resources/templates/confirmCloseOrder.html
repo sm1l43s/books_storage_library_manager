@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Подтверждение приема книги</title>
+    <th:block th:insert="parts/includesFiles :: includesFiles"></th:block>
+</head>
+<body class="login-page">
+<div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+    <div class="card shadow p-3 mb-5 bg-light rounded col-3">
+        <div class="card-body">
+            <form method="post" action="/confirmCloseOrder">
+                <h1 class="h3 mb-3 font-weight-normal text-center">Подтверждение приема книги</h1>
+                <div class="form-group">
+                    <label for="worker">Работник</label>
+                    <input type="text" class="form-control" id="worker" th:value="${worker.getLastName()} + ' ' + ${worker.getFirstName()}" disabled>
+                    <input type="text" th:value="${worker.getId()}" name="idWorker" hidden>
+                </div>
+
+                <div class="form-group">
+                    <label for="reader">Читатель</label>
+                    <input type="text" class="form-control" id="reader" th:value="${order.getReader().getLastName()} + ' ' + ${order.getReader().getFirstName()}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="book">Книга</label>
+                    <input type="text" class="form-control" id="book" th:value="${order.getBook().getAuthor()} + ' ' + ${order.getBook().getTitle()}" disabled>
+                </div>
+                <input type="text" th:value="${order.getId()}" name="idOrder" hidden>
+                <button class="btn btn-sm btn-primary btn-block" type="submit">Подтвердить прием</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
